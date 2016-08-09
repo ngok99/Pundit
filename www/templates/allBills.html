@@ -1,17 +1,21 @@
-<ion-view title="All Bills" hide-nav-bar="true" id="page6" style="background-color:#EE4B59;" class=" ">
+<ion-view title="All Bills" hide-nav-bar="true" id="page6" style="background-color:#ff3333;" class=" ">
     <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <div style="font-family:Century Gothic;">
         <div id="allBills-button-bar1" class=" button-bar "></div>
-        <a ui-sref="billBio" id="allBills-button183" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">Back</a>
-        <a ui-sref="savedBills" id="allBills-button16" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">Saved Bills</a>
-        <a ui-sref="home" id="allBills-button42" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small icon ion-android-home ">Home</a>
-        <form id="allBills-form9" class="list ">
+            <center>
+        <a ui-sref="billBio" id="allBills-button183" style="height:35px;width:33%;border-radius:8px;" class=" button button-dark button-small ">Back</a>
+        <a ui-sref="savedBills" id="allBills-button16" style="height:35px;width:33%;border-radius:8px;" class=" button button-dark button-small ">Saved Bills</a>
+        <a ui-sref="home" id="allBills-button42" style="height:35px;width:33%;border-radius:8px;" class=" button button-dark button-small icon ion-android-home ">Home</a>
+        </center>
+                <form id="allBills-form9" class="list ">
             <div class="spacer" style="width: 300px; height: 9px;"></div>
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Search Bills">
             </label>
         </form>
-        <h4 id="allBills-heading10" style="color:#000000;text-align:center;" class=" ">Bills</h4>
+            <b>
+        <h3 id="allBills-heading10" style="font-family:Century Gothic;color:white;text-align:center;padding-top:0px;font-size:25px;" class=" ">Bills</h3>></b>
         <div class="item item-body " id="allBills-list-item-container11">
             <button id="allBills-button178" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 1</button>
             <a ui-sref="billBio" id="allBills-button179" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 2</a>
@@ -23,5 +27,6 @@
             <a ui-sref="billBio" id="allBills-button186" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 8</a>
             <a ui-sref="billBio" id="allBills-button187" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 9</a>
         </div>
+            </div>
     </ion-content>
 </ion-view>
