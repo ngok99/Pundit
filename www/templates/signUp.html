@@ -1,0 +1,56 @@
+<ion-view title="Sign Up" hide-nav-bar="true" id="page12" style="background-color:#EE4B59;" class=" ">
+    <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <h3 id="signUp-heading26" style="color:#FFFFFF;text-align:center;" class=" "></h3>
+        <button id="signUp-button171" style="border-radius:30px 30px 30px 30px;" class=" button button-light  icon ion-android-person "></button>
+        <h4 id="signUp-heading27" style="color:#FFFFFF;text-align:center;" class=" ">[username]</h4>
+        <form id="signUp-form6" class="list ">
+            <label class="item item-input " id="signUp-input23">
+                <span class="input-label">Username</span>
+                <input type="text" placeholder="" ng-model="user.email">
+            </label>
+            <a ui-sref="home" id="signUp-button174" style="font-weight:500;" class=" button button-light button-small button-block icon ion-android-checkmark-circle ">Check Availability</a>
+            <label class="item item-input " id="signUp-input24">
+                <span class="input-label">Password</span>
+                <input type="text" placeholder="*********" ng-model="user.password">
+            </label>
+        </form>
+        <form id="signUp-form7" class="list ">
+            <label class="item item-input " id="signUp-input27">
+                <span class="input-label">Hometown</span>
+                <input type="text" placeholder="Sunshine, NY">
+            </label>
+            <label class="item item-input " id="signUp-input28">
+                <span class="input-label">First</span>
+                <input type="text" placeholder="John">
+            </label>
+            <label class="item item-input " id="signUp-input29">
+                <span class="input-label">Last</span>
+                <input type="text" placeholder="Doe">
+            </label>
+            <label class="item item-input " id="signUp-input30">
+                <span class="input-label">Age</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-select " id="signUp-select5">
+                <span class="input-label">Stance</span>
+                <select>
+                    <option></option>
+                    <option>Republican</option>
+                    <option>Democrat</option>
+                    <option>Independent</option>
+                </select>
+            </label>
+            <label class="item item-select " id="signUp-select6">
+                <span class="input-label">Identify as...</span>
+                <select>
+                    <option></option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>LGBT[Expand to multiple options]</option>
+                    <option>Other [Text box pops up to write what you identify as]</option>
+                </select>
+            </label>
+            <a ng-click="signup()" id="signUp-button175" style="font-weight:500;" class=" button button-light  button-block ">Create Account</a>
+        </form>
+    </ion-content>
+</ion-view>
