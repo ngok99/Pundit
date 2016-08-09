@@ -79,7 +79,7 @@ $scope.user = {};
             }
         );      
     }
-
+    getTwitter("kanyewest")
 		$scope.aliveBills = [];
 
 		$scope.Bill = Bill.find({
@@ -136,6 +136,7 @@ console.log($scope.aliveBills);
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
+
 })
    
 .controller('allBillsCtrl', function($scope) {
@@ -209,7 +210,30 @@ console.log($scope.aliveBills);
 		console.log(politicianTransfer.getProperty());
 	});
   
-
+	function getTwitter(handle) {
+        var scheme;
+ 
+        // Don't forget to add the org.apache.cordova.device plugin!
+        if(device.platform === 'iOS') {
+            scheme = 'twitter://';
+        }
+        else if(device.platform === 'Android') {
+            scheme = 'com.twitter.android';
+        }
+        scheme = 'twitter://';
+         
+        appAvailability.check(
+            scheme, // URI Scheme
+            function() {  // Success callback
+                window.open('twitter://user?screen_name=' + handle, '_system', 'location=no');
+                console.log('Twitter is available');
+            },
+            function() {  // Error callback
+                window.open('https://twitter.com/' + handle, '_system', 'location=no');
+                console.log('Twitter is not available');
+            }
+        );      
+    }
   
   //getPersonInfo(412318);
 
@@ -305,6 +329,7 @@ function getPersonInfo(pID){
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
+	getTwitter(pTwitter);
 }
 })
  
