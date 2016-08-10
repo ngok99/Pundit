@@ -7,10 +7,11 @@
             <h5 id="politicianProfile-heading23" style="color:#000000;text-align:right;" class=" ">{{pState}} {{pRole}}</h5>
             <p id="politicianProfile-markdown37" style="color:#000000;" class=" ">Term End: {{pEnd}}</p>
             <p id="politicianProfile-markdown38" style="color:#000000;" class=" ">Sponsored Bills</p>
-            <button id="politicianProfile-button117" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">Bill 1</button>
-            <button id="politicianProfile-button118" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">Bill 2</button>
-            <button id="politicianProfile-button119" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">Bill 3</button>
+            <button id={{pBills[0].id}} style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[0].display_number}}</button>
+            <button id={{pBills[1].id}} style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[1].display_number}}</button>
+            <button id={{pBills[2].id}} style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[2].display_number}}</button>
         </div>
+        <a ng-click="getTwitter($event);" ng-disabled="twitterEnabled" id={{pTwitter}} style="font-weight:600;" class=" button button-light button-small button-block ">Twitter</a>
         <a ui-sref="trending" id="politicianProfile-button167" style="font-weight:600;" class=" button button-light button-small button-block ">All Politicians</a>
         <a ui-sref="myGovernment" id="politicianProfile-button168" style="font-weight:600;" class=" button button-light button-small button-block ">My Government</a>
         <a ui-sref="home" id="politicianProfile-button120" style="font-weight:600;" class=" button button-light button-small button-block icon ion-android-home "></a>
