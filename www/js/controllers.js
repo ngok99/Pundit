@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
 $scope.user = {};
 
 	if(User.isAuthenticated()){
-		// then go somewhere else
+		$state.go("profile");
 	}
 	$scope.login = function(){
 		User.login($scope.user)
@@ -79,7 +79,6 @@ $scope.user = {};
             }
         );      
     }
-    getTwitter("kanyewest")
 		$scope.aliveBills = [];
 
 		$scope.Bill = Bill.find({
@@ -204,13 +203,15 @@ console.log($scope.aliveBills);
 
 })
    
-.controller('politicianProfileCtrl', function($scope, $http, politicianTransfer) {
+.controller('politicianProfileCtrl', function($scope, $http, politicianTransfer, $cordovaInAppBrowser) {
 	$scope.$on('$ionicView.beforeEnter',function(){
 		getPersonInfo(politicianTransfer.getProperty());
 		console.log(politicianTransfer.getProperty());
 	});
   
-	function getTwitter(handle) {
+	$scope.twitterEnabled = true;
+
+	$scope.getTwitter = function(event) {
         var scheme;
  
         // Don't forget to add the org.apache.cordova.device plugin!
@@ -225,15 +226,15 @@ console.log($scope.aliveBills);
         appAvailability.check(
             scheme, // URI Scheme
             function() {  // Success callback
-                window.open('twitter://user?screen_name=' + handle, '_system', 'location=no');
+                window.open('twitter://user?screen_name=' + event.target.id, '_system', 'location=no');
                 console.log('Twitter is available');
             },
             function() {  // Error callback
-                window.open('https://twitter.com/' + handle, '_system', 'location=no');
+                window.open('https://twitter.com/' + event.target.id, '_system', 'location=no');
                 console.log('Twitter is not available');
             }
-        );      
-    }
+        );  
+    };
   
   //getPersonInfo(412318);
 
@@ -322,14 +323,37 @@ function getPersonInfo(pID){
 	$scope.pEnd = role.enddate;
 	$scope.pState = abbrState(role.state);
 	$scope.pPhone = role.phone;
-	$scope.pTwitter = "@" + response.data.twitterid;
+	$scope.pTwitter = response.data.twitterid;
+	if($scope.pTwitter != null){
+		$scope.twitterEnabled = false;
+	}
+	console.log($scope.pTwitter);
 	$scope.pImage = "https://www.govtrack.us/data/photos/" + pID + ".jpeg";
 
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
-	getTwitter(pTwitter);
+
+
+
+
+  var pBills = [];
+  var billsUrl = "https://www.govtrack.us/api/v2/bill?sponsor=" + pID;
+  $http({
+  method: 'GET',
+  url: billsUrl
+}).then(function successCallback(response) {
+	console.log(response);
+	for(i = 0; i<3; i++){
+		pBills.push(response.data.objects[i]);
+	}
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+
+	console.log(pBills);
 }
 })
  
