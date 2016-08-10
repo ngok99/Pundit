@@ -1,6 +1,6 @@
-<ion-view title="Bill Bio" hide-nav-bar="true" id="page16" style="background-color:#EE4B59;" class=" ">
-    <ion-content padding="true" class="manual-ios-statusbar-padding">
-        <div class="list card " id="billBio-card28">
+<ion-view title="Bill Bio" on-swipe-up="onSwipeUp()" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" hide-nav-bar="true" id="page16" style="background-color:#EE4B59;" class=" ">
+    <ion-content padding="true" scroll="false" class="manual-ios-statusbar-padding">
+        <div class="list card "  id="billBio-card28">
             <h2 id="billBio-heading16" style="color:#000000;" class=" ">{{Title}}{{Bill}}</h2>
 
             <p id="billBio-markdown26" style="color:#000000;text-align:center;" class=" ">{{Description}}</p>
@@ -15,12 +15,10 @@
                 <a ui-sref="politicianProfile" id={{Sponsor.id}} data-ng-click="openProfile($event)" style="font-weight:500;" class=" button button-light button-small button-block "><img src={{pImage}} style="height:25%;width:25%"></img><br>{{Sponsor.name}}</a>
 
                 </p>
-            
-            <button id="billBio-button176" style="font-weight:600;font-size:15px;" class=" button button-light button-large button-block ">See Full Bill</button>
+            <a ng-click="getFull();" id="see-full-bill" style="font-weight:600;" class=" button button-light button-small button-block ">See Full Bill</a>
+
         </div>
-        <div class="spacer" style="width: 300px; height: 156px;"></div>
-        <a ui-sref="allBills" id="billBio-button12" style="font-weight:500;" class=" button button-light button-small button-block ">View All</a>
-        <a ui-sref="savedBills" id="billBio-button177" style="font-weight:500;" class=" button button-light button-small button-block ">Saved Bills</a>
+
         <a ui-sref="home" id="billBio-button41" style="font-weight:500;" class=" button button-light button-small button-block icon ion-android-home ">Home</a>
     </ion-content>
 </ion-view>

@@ -52,33 +52,30 @@ $scope.user = {};
 })
    
 .controller('billBioCtrl', function($scope, $http, politicianTransfer, $cordovaInAppBrowser, Bill) {
+	var index = 0;
 
+	$scope.onSwipeLeft = function() {
+		console.log("SWIPED LEFT")
+		index += 1;
+		getBill();
+	}
 
+	$scope.onSwipeRight = function() {
+		if(index>0){
+		console.log("SWIPED RIGHT")
+		index -=1;
+		getBill();
+		}
+	}
 
-	function getTwitter(handle) {
-        var scheme;
- 
-        // Don't forget to add the org.apache.cordova.device plugin!
-        if(device.platform === 'iOS') {
-            scheme = 'twitter://';
-        }
-        else if(device.platform === 'Android') {
-            scheme = 'com.twitter.android';
-        }
-        scheme = 'twitter://';
-         
-        appAvailability.check(
-            scheme, // URI Scheme
-            function() {  // Success callback
-                window.open('twitter://user?screen_name=' + handle, '_system', 'location=no');
-                console.log('Twitter is available');
-            },
-            function() {  // Error callback
-                window.open('https://twitter.com/' + handle, '_system', 'location=no');
-                console.log('Twitter is not available');
-            }
-        );      
-    }
+	$scope.onSwipeUp = function() {
+		console.log("SWIPED Up")
+	}
+
+	$scope.getFull = function(event) {
+        window.open($scope.Link, '_blank', 'location=no');
+    };
+
 		$scope.aliveBills = [];
 
 		$scope.Bill = Bill.find({
@@ -104,6 +101,10 @@ console.log($scope.aliveBills);
   	return arr;
   }
 
+
+
+function getBill(){
+
   $http({
   method: 'GET',
   url: 'https://www.govtrack.us/api/v2/bill?sort=-current_status_date'
@@ -116,10 +117,8 @@ console.log($scope.aliveBills);
 		}
 	}
 
-	$scope.aliveBills = shuffle($scope.aliveBills);
+	
 	console.log($scope.aliveBills);
-
-	var index = 0;
 
 
 	$scope.Title = $scope.aliveBills[index].display_number;
@@ -128,6 +127,10 @@ console.log($scope.aliveBills);
 	$scope.pImage = "https://www.govtrack.us/data/photos/" + $scope.aliveBills[index].sponsor.id + ".jpeg"
 	$scope.Link = $scope.aliveBills[index].link;
 	$scope.Date = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][0];
+	$scope.Date = $scope.Date.replace("datetime.datetime(", "");
+	$scope.Date = $scope.Date.replace(", 0, 0)", "");
+	$scope.Date = $scope.Date.replace(", ", "-");
+
 	$scope.Action = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][2];
 
     console.log($scope.aliveBills);
@@ -135,6 +138,44 @@ console.log($scope.aliveBills);
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
+}
+
+  $http({
+  method: 'GET',
+  url: 'https://www.govtrack.us/api/v2/bill?sort=-current_status_date'
+}).then(function successCallback(response) {
+	console.log(response);
+
+	for(i = 0; i<response.data.objects.length; i++){
+		if(response.data.objects[i].is_alive == true){
+			$scope.aliveBills.push(response.data.objects[i]);
+		}
+	}
+
+		$scope.aliveBills = shuffle($scope.aliveBills);
+	console.log($scope.aliveBills);
+
+
+	$scope.Title = $scope.aliveBills[index].display_number;
+	$scope.Description = $scope.aliveBills[index].title_without_number;
+	$scope.Sponsor = $scope.aliveBills[index].sponsor;
+	$scope.pImage = "https://www.govtrack.us/data/photos/" + $scope.aliveBills[index].sponsor.id + ".jpeg"
+	$scope.Link = $scope.aliveBills[index].link;
+	$scope.Date = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][0];
+	$scope.Date = $scope.Date.replace("datetime.datetime(", "");
+	$scope.Date = $scope.Date.replace(", 0, 0)", "");
+	$scope.Date = $scope.Date.replace(", ", "-");
+	$scope.Date = $scope.Date.replace(", ", "-");
+	$scope.Action = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][2];
+
+
+    console.log($scope.aliveBills);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+  });
+
+
 
 })
    
@@ -235,7 +276,8 @@ console.log($scope.aliveBills);
             }
         );  
     };
-  
+
+
   //getPersonInfo(412318);
 
 //button will send person id info
@@ -338,7 +380,7 @@ function getPersonInfo(pID){
 
 
 
-  var pBills = [];
+  $scope.pBills = [];
   var billsUrl = "https://www.govtrack.us/api/v2/bill?sponsor=" + pID;
   $http({
   method: 'GET',
@@ -346,14 +388,19 @@ function getPersonInfo(pID){
 }).then(function successCallback(response) {
 	console.log(response);
 	for(i = 0; i<3; i++){
-		pBills.push(response.data.objects[i]);
+		$scope.pBills.push(response.data.objects[i]);
 	}
+	console.log($scope.pBills);
   }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
   });
 
-	console.log(pBills);
+	$scope.getFull = function(event) {
+		console.log($scope.pBills);
+        window.open(event.target.id, '_blank', 'location=no');
+    };
+	
 }
 })
  
