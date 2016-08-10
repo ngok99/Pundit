@@ -1,16 +1,21 @@
-<ion-view title="Sign Up" hide-nav-bar="true" id="page12" style="background-color:#EE4B59;" class=" ">
+<ion-view title="Sign Up" hide-nav-bar="true" id="page12" style="background-color:#ff3333;" class=" ">
     <ion-content padding="true" class="manual-ios-statusbar-padding">
+        <div style="font-family:Century Gothic;">
         <h3 id="signUp-heading26" style="color:#FFFFFF;text-align:center;" class=" "></h3>
-        <button id="signUp-button171" style="border-radius:30px 30px 30px 30px;" class=" button button-light  icon ion-android-person "></button>
-        <h4 id="signUp-heading27" style="color:#FFFFFF;text-align:center;" class=" ">[username]</h4>
+        <center><button id="politicianProfile-button82" style="width:75px;height:75px; border-radius:49%;" class=" button button-calm  icon ion-android-person "></button></center><br>
+        <!--<h4 id="signUp-heading27" style="color:#FFFFFF;text-align:center;" class=" ">[username]</h4>-->
         <form id="signUp-form6" class="list ">
             <label class="item item-input " id="signUp-input23">
                 <span class="input-label">Username</span>
                 <input type="text" placeholder="" ng-model="user.email">
             </label>
-            <a ui-sref="home" id="signUp-button174" style="font-weight:500;" class=" button button-light button-small button-block icon ion-android-checkmark-circle ">Check Availability</a>
+            <a ui-sref="home" id="signUp-button174" style="font-weight:500;background-color:lightgreen" class=" button button-small button-block icon ion-android-checkmark-circle "> Check Availability</a>
             <label class="item item-input " id="signUp-input24">
                 <span class="input-label">Password</span>
+                <input type="text" placeholder="*********">
+            </label>
+            <label class="item item-input " id="signUp-input24">
+                <span style="font-size:13px;" class="input-label">Retype Password</span>
                 <input type="text" placeholder="*********" ng-model="user.password">
             </label>
         </form>
@@ -52,5 +57,6 @@
             </label>
             <a ng-click="signup()" id="signUp-button175" style="font-weight:500;" class=" button button-light  button-block ">Create Account</a>
         </form>
+            </div>
     </ion-content>
 </ion-view>
