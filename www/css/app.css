@@ -1,0 +1,105 @@
+.home-button-vote {
+   background-color: #0099ff; 
+   color: white;
+    text-align:center;
+    background-position: top;
+    position:relative;
+    z-index:5;
+    padding: 35% 0;
+    margin-bottom: -20px;
+    float: top;
+    transform: translate(0%, 0%);
+    height:50%;
+    width: 100%;
+    padding-top: 40%;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 400%;
+    
+}
+.home-button-vote:hover {
+   background-color: #008ae6; 
+   color: white;
+}
+.home-button-profile {
+    background-position: center;
+    display:block;
+    width:100px;
+    height:100px;
+    line-height:50px;
+    border: 2.5px solid #000000;
+    border-radius: 50%;
+    color:#000000;
+    text-align:center;
+    vertical-align: middle;
+    text-decoration:none;
+    background: #ffffff;
+    font-size:20px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20px;
+    z-index:10;
+    overflow:hidden;
+    transform: translate(0%, -68%);
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    
+}
+.home-button-profile:hover {
+    opacity: 0.6;
+}
+.home-button-profile img {
+    display: block;
+    width: 240%;
+    transform: translate(-5%, -20%);
+}
+.home-button-profile-background {
+    background-position: center;
+    display:block;
+    width:100px;
+    height:100px;
+    line-height:50px;
+    border: 2.5px solid #000000;
+    border-radius: 50%;
+    color:#000000;
+    text-align:center;
+    vertical-align: middle;
+    text-decoration:none;
+    background: #ffffff;
+    font-size:20px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20px;
+    z-index:7;
+    overflow:hidden;
+    transform: translate(0%, -168%);
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+.home-button-petition {
+    background-color: #ff3333;
+    height: 45%;
+    z-index:5;
+    margin: 0;
+    position: absolute;
+    top: 74%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:50%;
+    width: 100%;
+    padding-top: 40%;
+    color: white;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 400%;
+}
+.home-button-petition:hover {
+    background-color: #e60000;
+    color: white;
+}
+.global-home-button {
+    transform: translate(450%, 410%);
+    position: static;
+}
+.global-home-button:hover{
+    -webkit-transition: width 2s,height 2s;/* For Safari 3.1 to 6.0 */
+    transition: width 2s,height 2s;
+}

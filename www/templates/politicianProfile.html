@@ -1,16 +1,18 @@
-<ion-view title="Politician Profile" hide-nav-bar="true" id="page9" style="background-color:#EE4B59;" class=" ">
+<ion-view title="Politician Profile" hide-nav-bar="true" id="page9" style="background-color:#0099ff;" class=" ">
     <ion-content padding="true" class="manual-ios-statusbar-padding">
-        <div class="list card " id="politicianProfile-card29">
-            <img src={{pImage}} style="width:20%;height:20%;">
+        <div class="list card " style="padding:15px;" id="politicianProfile-card29">
+            <button id="politicianProfile-button82" style="width:100px;height:100px; border-radius:49%;float:left" class=" button button-assertive"><img src={{pImage}} style="width:20%;height:20%;" alt="Politician Picture"></button>
             <p id="politicianProfile-markdown34" style="color:#000000;" class=" "></p>
-            <h4 id="politicianProfile-heading22" style="color:#000000;text-align:center;" class=" ">{{pName}}</h4>
-            <h5 id="politicianProfile-heading23" style="color:#000000;text-align:right;" class=" ">{{pState}} {{pRole}}</h5>
-            <p id="politicianProfile-markdown37" style="color:#000000;" class=" ">Term End: {{pEnd}}</p>
-            <p id="politicianProfile-markdown38" style="color:#000000;" class=" ">Sponsored Bills</p>
-            <button id={{pBills[0].link}} ng-click="getFull($event);" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[0].display_number}}</button>
-            <button id={{pBills[1].link}} ng-click="getFull($event);" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[1].display_number}}</button>
-            <button id={{pBills[2].link}} ng-click="getFull($event);" style="font-weight:600;text-align:left;" class=" button button-light button-small button-block ">{{pBills[2].display_number}}</button>
+            <h3 id="politicianProfile-heading22" style="color:#000000;text-align:left;padding:0px" class=" ">{{pName}}</h3>
+            <h5 id="politicianProfile-heading23" style="color:#000000;text-align:left;" class=" ">{{pState}} {{pRole}}</h5><br><br><br>
+            <div style="line-height:7px;padding-top:5px;">
+            <p id="politicianProfile-markdown37" style="color:#000000;" class=" ">&nbsp;&nbsp;&nbsp;&nbsp;Term End: {{pEnd}}</p>
+            <p id="politicianProfile-markdown38" style="color:#000000;" class=" ">&nbsp;&nbsp;&nbsp;&nbsp;Sponsored Bills</p>
+            <button id={{pBills[0].link}} ng-click="getFull($event);" style="color:white;;font-weight:600;text-align:left;" class=" button button-dark button-small button-block ">{{pBills[0].display_number}}</button>
+            <button id={{pBills[1].link}} ng-click="getFull($event);" style="color:white;font-weight:600;text-align:left;" class=" button button-dark button-small button-block ">{{pBills[1].display_number}}</button>
+            <button id={{pBills[2].link}} ng-click="getFull($event);" style="color:white;font-weight:600;text-align:left;" class=" button button-dark button-small button-block ">{{pBills[2].display_number}}</button>
         </div>
+            </div>
         <a ng-click="getTwitter($event);" ng-disabled="twitterEnabled" id={{pTwitter}} style="font-weight:600;" class=" button button-light button-small button-block ">Twitter</a>
         <a href="tel:1-408-555-5555" id="phone-number" style="font-weight:600;" class=" button button-light button-small button-block ">Call</a>
         <a ui-sref="trending" id="politicianProfile-button167" style="font-weight:600;" class=" button button-light button-small button-block ">All Politicians</a>

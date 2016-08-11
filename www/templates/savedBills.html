@@ -1,17 +1,19 @@
-<ion-view title="Saved Bills" hide-nav-bar="true" id="page13" style="background-color:#EE4B59;" class=" ">
+<ion-view title="Saved Bills" hide-nav-bar="true" id="page13" style="background-color:#ff3333;" class=" ">
     <ion-content padding="true" class="manual-ios-statusbar-padding">
-        <div id="savedBills-button-bar2" class=" button-bar "></div>
+        <center><div style="font-family:Century Gothic">
+            <a ui-sref="billBio" id="savedBills-button11" style="height:35px;width:128px;border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">Back</a>
+        <a ui-sref="allBills" id="savedBills-button18" style="height:35px;width:128px;border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">All Bills</a>
+        <a ui-sref="home" id="savedBills-button43" style="height:35px;width:128px;border-radius:10px 10px 10px 10px;padding-top:5px" class=" button button-dark icon ion-android-home button-small "></a>
+            </center>
+        <br>
         <form id="savedBills-form8" class="list ">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
                 <input type="search" placeholder="Search Bills">
             </label>
         </form>
-        <a ui-sref="billBio" id="savedBills-button11" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">Back</a>
-        <a ui-sref="allBills" id="savedBills-button18" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">All Bills</a>
-        <a ui-sref="home" id="savedBills-button43" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small ">Home</a>
-        <h4 id="savedBills-heading28" style="color:#000000;text-align:center;" class=" ">Bills</h4>
-        <div class="item item-body " id="savedBills-list-item-container5">
+        <h3 id="savedBills-heading28" style="color:#000000;text-align:center;font-family:Century Gothic" class=" ">Bills</h3>
+        <div class="item item-body " style="font-family:Century Gothic; padding:5px" id="savedBills-list-item-container5">
             <button id="savedBills-button19" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 1</button>
             <a ui-sref="billBio" id="savedBills-button21" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 2</a>
             <a ui-sref="billBio" id="savedBills-button22" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 3</a>
@@ -19,5 +21,6 @@
             <a ui-sref="billBio" id="savedBills-button24" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 5</a>
             <a ui-sref="billBio" id="savedBills-button25" style="border-radius:10px 10px 10px 10px;" class=" button button-dark button-small button-block ">Bill 6</a>
         </div>
+            </div>
     </ion-content>
 </ion-view>
