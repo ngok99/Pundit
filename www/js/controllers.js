@@ -4,14 +4,13 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('loginCtrl', function($scope, User, $state) {
+.controller('loginCtrl', function($scope, PUser, $state) {
 $scope.user = {};
+	
 
-	if(User.isAuthenticated()){
-		$state.go("profile");
-	}
+	
 	$scope.login = function(){
-		User.login($scope.user)
+		PUser.login($scope.user)
 		.$promise
 		.then(function success(response){
 			console.log(response);
@@ -33,16 +32,16 @@ $scope.user = {};
 
 })
    
-.controller('signUpCtrl', function($scope, User, $state) {
+.controller('signUpCtrl', function($scope, PUser, $state) {
 	$scope.user = {};
 
 	$scope.signup = function(){
-		User.create($scope.user)
+		PUser.create($scope.user)
 		.$promise
 		.then(function success(response){
 			$state.go("profile");
 		}, function error(response){
-			alert("Invalid Username or Password");
+			alert("Invalid Input");
 		});
 	};
 })
@@ -271,7 +270,7 @@ function getBill(){
                 console.log('Twitter is available');
             },
             function() {  // Error callback
-                window.open('https://twitter.com/' + event.target.id, '_system', 'location=no');
+                window.open('https://twitter.com/' + event.target.id, '_blank', 'location=no');
                 console.log('Twitter is not available');
             }
         );  

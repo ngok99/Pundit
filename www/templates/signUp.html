@@ -17,38 +17,23 @@
         <form id="signUp-form7" class="list ">
             <label class="item item-input " id="signUp-input27">
                 <span class="input-label">Hometown</span>
-                <input type="text" placeholder="Sunshine, NY">
+                <input type="text" placeholder="Sunshine, NY" ng-model="user.homestate">
             </label>
             <label class="item item-input " id="signUp-input28">
                 <span class="input-label">First</span>
-                <input type="text" placeholder="John">
+                <input type="text" placeholder="John" ng-model="user.firstname">
             </label>
             <label class="item item-input " id="signUp-input29">
                 <span class="input-label">Last</span>
-                <input type="text" placeholder="Doe">
+                <input type="text" placeholder="Doe" ng-model="user.lastname">
             </label>
             <label class="item item-input " id="signUp-input30">
                 <span class="input-label">Age</span>
-                <input type="number" placeholder="">
+                <input type="number" placeholder="" ng-model="user.age">
             </label>
             <label class="item item-select " id="signUp-select5">
                 <span class="input-label">Stance</span>
-                <select>
-                    <option></option>
-                    <option>Republican</option>
-                    <option>Democrat</option>
-                    <option>Independent</option>
-                </select>
-            </label>
-            <label class="item item-select " id="signUp-select6">
-                <span class="input-label">Identify as...</span>
-                <select>
-                    <option></option>
-                    <option>Female</option>
-                    <option>Male</option>
-                    <option>LGBT[Expand to multiple options]</option>
-                    <option>Other [Text box pops up to write what you identify as]</option>
-                </select>
+                <input type="text" placeholder="Republican/Democrat/None" ng-model="user.stance">
             </label>
             <a ng-click="signup()" id="signUp-button175" style="font-weight:500;" class=" button button-light  button-block ">Create Account</a>
         </form>
