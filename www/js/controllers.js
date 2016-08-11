@@ -1,14 +1,16 @@
 angular.module('app.controllers', [])
   
 .controller('homeCtrl', function($scope) {
+	$scope.vote = function(){
 
+	};
 })
    
 .controller('loginCtrl', function($scope, PUser, $state) {
 $scope.user = {};
 	
 
-	
+
 	$scope.login = function(){
 		PUser.login($scope.user)
 		.$promise
@@ -54,15 +56,17 @@ $scope.user = {};
 	var index = 0;
 
 	$scope.onSwipeLeft = function() {
+		if(index<$scope.aliveBills.length - 1){
 		console.log("SWIPED LEFT")
 		index += 1;
 		getBill();
+		}
 	}
 
 	$scope.onSwipeRight = function() {
-		if(index>0){
+		if(index<$scope.aliveBills.length - 1){
 		console.log("SWIPED RIGHT")
-		index -=1;
+		index +=1;
 		getBill();
 		}
 	}
@@ -128,6 +132,7 @@ function getBill(){
 	$scope.Date = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][0];
 	$scope.Date = $scope.Date.replace("datetime.datetime(", "");
 	$scope.Date = $scope.Date.replace(", 0, 0)", "");
+	$scope.Date = $scope.Date.replace(", ", "-");
 	$scope.Date = $scope.Date.replace(", ", "-");
 
 	$scope.Action = $scope.aliveBills[index].major_actions[$scope.aliveBills[index].major_actions.length - 1][2];
@@ -363,7 +368,7 @@ function getPersonInfo(pID){
 	$scope.pRole = role.role_type_label;
 	$scope.pEnd = role.enddate;
 	$scope.pState = abbrState(role.state);
-	$scope.pPhone = role.phone;
+	$scope.pPhone = "tel:" + role.phone;
 	$scope.pTwitter = response.data.twitterid;
 	if($scope.pTwitter != null){
 		$scope.twitterEnabled = false;
